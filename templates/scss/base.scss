@@ -41,6 +41,20 @@ header {
 	}
 }
 
+.contents {
+	max-width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row-reverse;
+
+	padding: 10px 30px;
+	
+	@media (max-width: $screen-tablet) {
+		padding: 12px;
+		flex-direction: column;  
+	}
+}
+
 nav {
 	ul {
 		list-style-type: none;
@@ -60,10 +74,9 @@ nav {
 main {
 	text-align: left;
 	color: $secondary;
-	padding: 10px 30px;
+	max-width: 80ch;
+	min-width: 0;
 	flex: 1;
-	margin: 0 auto;
-	max-width: Min(80ch, 100%);
 
 	a {
 		&:hover,
@@ -73,10 +86,6 @@ main {
 			color: $hover-color;
 			text-decoration: none;
 		}
-	}
-
-	@media (max-width: $screen-tablet) {
-		padding: 12px;
 	}
 }
 

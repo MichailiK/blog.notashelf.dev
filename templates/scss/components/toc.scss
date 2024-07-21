@@ -1,20 +1,14 @@
 // Table Of Content element injected by Pandoc
 #TOC {
-	// Fixed position relative to the viewport
-	// aligned to the top right corner
-	position: fixed;
-	top: 150;
-	right: 25px;
+	// make the ToC sticky, i.e. follow the user's scroll
+	align-self: flex-start;
+	position: sticky;
+	top: 16px;
 
-	// make sure this actually fits the entire TOC
-	// long titles create issues with text overlapping
-	// the main body
-	width: 450px;
-
-	// better spacing
-	padding-left: 15px;
-	margin-left: 15px;
-	transform: translateY(150);
+	// ... except when we're on mobile
+	@media (max-width: $screen-tablet) {
+		position: static;
+	}
 
 	// Add a small box around the TOC
 	// border: 1px solid darken($primary, 5%);
@@ -39,10 +33,9 @@
 		margin-left: 20px;
 		display: block;
 	}
-
-	// hide the TOC on mobile devices
-	@media screen and (max-width: 768px) {
-		display: none;
+	// ... except for the first ones
+	& > ul, & > ul > li {
+		margin-left: 0;
 	}
 }
 
