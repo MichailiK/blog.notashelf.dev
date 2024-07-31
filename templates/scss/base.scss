@@ -12,12 +12,14 @@ pre {
 body {
 	font-size: 20px;
 	line-height: 1.5;
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 	background-color: $primary;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	width: fit-content;
+	max-width: 100%;
 
 	@media (max-width: $screen-tablet) {
 		font-size: 18px;
@@ -31,9 +33,9 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 80ch;
-	width: 100%;
-	margin: 0 auto;
+	// 80ch is the max width of the main content
+	// 25px is the horizontal padding declared above
+	max-width: calc(80ch + 25px * 2);
 
 	@media (max-width: $screen-tablet) {
 		font-size: 14px;
